@@ -34,6 +34,8 @@ if hora is not None and hora2 is not None:
     elif hora3[0] <= 23 and hora3[1] > 59:
         hora3[1] = hora3[1] - 60
         hora3[0] = hora3[0] + 1
+        if hora3[0] == 24:
+            hora3[0] = 0
     hora3 = map(str, hora3)
     hora3 = ":".join(hora3)
     print(f"A hora final é {hora3}")

@@ -1,4 +1,4 @@
-def hora_lista(horario):
+def hora_lista(horario): # Função que transforma uma string de hora no formato "XX:XX" em uma lista no formato [XX, XX]
     horario = horario.replace(":", " ")
     horario = horario.split()
     horario_int = []
@@ -13,7 +13,7 @@ def hora_lista(horario):
         return horario
 
 
-def soma_horas(hora, hora2):
+def soma_horas(hora, hora2):  # Função que recebe duas horas diferentes válidas e as soma 
     hora = hora_lista(hora)
     hora2 = hora_lista(hora2)
     if hora is not None and hora2 is not None:

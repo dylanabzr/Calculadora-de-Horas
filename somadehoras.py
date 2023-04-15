@@ -1,5 +1,5 @@
 class SomaHoras:
-    def __init__(self, hora1, hora2):
+    def __new__(cls, hora1, hora2):
         """Função que recebe duas horas diferentes válidas e as soma"""
         def hora_lista(horario):
             """Função que transforma uma string de hora no formato "XX:XX" em uma lista no formato [XX, XX]"""
@@ -43,16 +43,19 @@ class SomaHoras:
             if hora3[0] > 9 and hora3[1] > 9:
                 hora3 = map(str, hora3)
                 hora3 = ":".join(hora3)
+                return hora3
             elif hora3[0] < 9 < hora3[1]:
                 hora3[0] = str(hora3[0])
                 hora3[0] = "0" + hora3[0]
                 hora3 = map(str, hora3)
                 hora3 = ":".join(hora3)
+                return hora3
             elif hora3[1] < 9 < hora3[0]:
                 hora3[1] = str(hora3[1])
                 hora3[1] = "0" + hora3[1]
                 hora3 = map(str, hora3)
                 hora3 = ":".join(hora3)
+                return hora3
             elif hora3[1] < 9 and hora3[0] < 9:
                 hora3[0] = str(hora3[0])
                 hora3[0] = "0" + hora3[0]
@@ -60,11 +63,12 @@ class SomaHoras:
                 hora3[1] = "0" + hora3[1]
                 hora3 = map(str, hora3)
                 hora3 = ":".join(hora3)
-            print(f"A hora final é {hora3}")
+                return hora3
         else:
-            print("Horário inválido")
+            hora3 = "Horário inválido"
+            return hora3
 
 
 a = input("Digite uma hora válida: ")
 b = input("Digite outra hora válida para ser somada com a anterior: ")
-SomaHoras(a, b)
+print(SomaHoras(a, b))

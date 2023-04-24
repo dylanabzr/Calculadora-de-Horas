@@ -71,4 +71,67 @@ class SomaHoras:
 
 a = input("Digite uma hora válida: ")
 b = input("Digite outra hora válida para ser somada com a anterior: ")
-print(SomaHoras(a, b))
+operação = input("Digite a operação desejada(+,-): ")
+if operação == "+":
+        print(SomaHoras(a, b))
+elif operação == "-":
+        a = a.replace(":", " ")
+        a = a.split()
+        a_int = []
+        b = b.replace(":", " ")
+        b = b.split()
+        b_int = []
+        for i in a:
+                a_int.append(int(i))
+        a = a_int
+        if a[1] > 59 or a[1] < 0:
+                print("Horário inválido")
+        elif a[0] > 23 or a[0] < 0:
+                print("Horário inválido")
+        for i in b:
+                b_int.append(int(i))
+        b = b_int
+        if b [1] > 59 or b[1] < 0:
+                print("Horário inválido")
+        elif a[0] > 23 or a[0] < 0:
+                print("Horário inválido")
+
+
+        hora1 = a
+        hora2 = b
+        hora3 = [0, 0]
+        hora3[0] = hora1[0] - hora2[0]
+        if hora3[0] < 0:
+                hora3[0] += 24
+        elif hora3[0] == 24:
+                hora3[0] = 0
+        if hora1[1] >= hora2[1]:
+                hora3[1] = hora1[1] - hora2[1]
+        elif hora1[1] < hora2[1]:
+                hora3[1] = (hora1[1] + 60) - hora2[1]
+                hora3[0] -= 1
+        if hora3[0] > 9 and hora3[1] > 9:
+                hora3 = map(str, hora3)
+                hora3 = ":".join(hora3)
+                print(hora3)
+        elif hora3[0] < 9 < hora3[1]:
+                hora3[0] = str(hora3[0])
+                hora3[0] = "0" + hora3[0]
+                hora3 = map(str, hora3)
+                hora3 = ":".join(hora3)
+                print(hora3)
+        elif hora3[1] < 9 < hora3[0]:
+                hora3[1] = str(hora3[1])
+                hora3[1] = "0" + hora3[1]
+                hora3 = map(str, hora3)
+                hora3 = ":".join(hora3)
+                print(hora3)
+        elif hora3[1] < 9 and hora3[0] < 9:
+                hora3[0] = str(hora3[0])
+                hora3[0] = "0" + hora3[0]
+                hora3[1] = str(hora3[1])
+                hora3[1] = "0" + hora3[1]
+                hora3 = map(str, hora3)
+                hora3 = ":".join(hora3)
+                print(hora3)
+
